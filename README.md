@@ -125,6 +125,7 @@ export default () => (
 API:
 
 - `<Link route='name'>...</Link>`
+- `<Link route='name' hash='intro'>...</Link>`
 - `<Link route='name' params={params}> ... </Link>`
 - `<Link route='/path/to/match'> ... </Link>`
 
@@ -132,6 +133,7 @@ Props:
 
 - `route` - Route name or URL to match (alias: `to`)
 - `params` - Optional parameters for named routes
+- `hash` - Optional hash
 
 It generates the URLs for `href` and `as` and renders `next/link`. Other props like `prefetch` will work as well.
 
@@ -172,7 +174,7 @@ Arguments:
 
 - `route` - Route name or URL to match
 - `params` - Optional parameters for named routes
-- `options` - Passed to Next.js
+- `options` - Passed to Next.js. can have an optional `hash`.
 
 The same works with `.replaceRoute()` and `.prefetchRoute()`
 
