@@ -1,8 +1,8 @@
 # Dynamic Routes for Next.js
 
-[![npm version](https://d25lcipzij17d.cloudfront.net/badge.svg?id=js&type=6&v=1.4.2&x2=0)](https://www.npmjs.com/package/next-routes) [![Coverage Status](https://coveralls.io/repos/github/fridays/next-routes/badge.svg)](https://coveralls.io/github/fridays/next-routes) [![Build Status](https://travis-ci.org/fridays/next-routes.svg?branch=master)](https://travis-ci.org/fridays/next-routes)
-
 Easy to use universal dynamic routes for [Next.js](https://github.com/zeit/next.js)
+
+Fork of [next-routes](https://github.com/fridays/next-routes/) with anchor support
 
 - Express-style route and parameters matching
 - Request handler middleware for express & co
@@ -13,21 +13,21 @@ Easy to use universal dynamic routes for [Next.js](https://github.com/zeit/next.
 Install:
 
 ```bash
-npm install next-routes --save
+npm install next-routes-2 --save
 ```
 
 Create `routes.js` inside your project:
 
 ```javascript
-const routes = require('next-routes')
+const routes = require("next-routes");
 
-                                                    // Name   Page      Pattern
-module.exports = routes()                           // ----   ----      -----
-.add('about')                                       // about  about     /about
-.add('blog', '/blog/:slug')                         // blog   blog      /blog/:slug
-.add('user', '/user/:id', 'profile')                // user   profile   /user/:id
-.add('/:noname/:lang(en|es)/:wow+', 'complex')      // (none) complex   /:noname/:lang(en|es)/:wow+
-.add({name: 'beta', pattern: '/v3', page: 'v3'})    // beta   v3        /v3
+// Name   Page      Pattern
+module.exports = routes() // ----   ----      -----
+  .add("about") // about  about     /about
+  .add("blog", "/blog/:slug") // blog   blog      /blog/:slug
+  .add("user", "/user/:id", "profile") // user   profile   /user/:id
+  .add("/:noname/:lang(en|es)/:wow+", "complex") // (none) complex   /:noname/:lang(en|es)/:wow+
+  .add({ name: "beta", pattern: "/v3", page: "v3" }); // beta   v3        /v3
 ```
 
 This file is used both on the server and the client.
@@ -47,10 +47,10 @@ The page component receives the matched URL parameters merged into `query`
 
 ```javascript
 export default class Blog extends React.Component {
-  static async getInitialProps ({query}) {
+  static async getInitialProps({ query }) {
     // query.slug
   }
-  render () {
+  render() {
     // this.props.url.query.slug
   }
 }
@@ -60,30 +60,32 @@ export default class Blog extends React.Component {
 
 ```javascript
 // server.js
-const next = require('next')
-const routes = require('./routes')
-const app = next({dev: process.env.NODE_ENV !== 'production'})
-const handler = routes.getRequestHandler(app)
+const next = require("next");
+const routes = require("./routes");
+const app = next({ dev: process.env.NODE_ENV !== "production" });
+const handler = routes.getRequestHandler(app);
 
 // With express
-const express = require('express')
+const express = require("express");
 app.prepare().then(() => {
-  express().use(handler).listen(3000)
-})
+  express()
+    .use(handler)
+    .listen(3000);
+});
 
 // Without express
-const {createServer} = require('http')
+const { createServer } = require("http");
 app.prepare().then(() => {
-  createServer(handler).listen(3000)
-})
+  createServer(handler).listen(3000);
+});
 ```
 
 Optionally you can pass a custom handler, for example:
 
 ```javascript
-const handler = routes.getRequestHandler(app, ({req, res, route, query}) => {
-  app.render(req, res, route.page, query)
-})
+const handler = routes.getRequestHandler(app, ({ req, res, route, query }) => {
+  app.render(req, res, route.page, query);
+});
 ```
 
 Make sure to use `server.js` in your `package.json` scripts:
@@ -104,20 +106,20 @@ Import `Link` and `Router` from your `routes.js` file to generate URLs based on 
 
 ```jsx
 // pages/index.js
-import {Link} from '../routes'
+import { Link } from "../routes";
 
 export default () => (
   <div>
     <div>Welcome to Next.js!</div>
-    <Link route='blog' params={{slug: 'hello-world'}}>
+    <Link route="blog" params={{ slug: "hello-world" }}>
       <a>Hello world</a>
     </Link>
     or
-    <Link route='/blog/hello-world'>
+    <Link route="/blog/hello-world">
       <a>Hello world</a>
     </Link>
   </div>
-)
+);
 ```
 
 API:
@@ -137,23 +139,25 @@ It generates the URLs for `href` and `as` and renders `next/link`. Other props l
 
 ```jsx
 // pages/blog.js
-import React from 'react'
-import {Router} from '../routes'
+import React from "react";
+import { Router } from "../routes";
 
 export default class Blog extends React.Component {
-  handleClick () {
+  handleClick() {
     // With route name and params
-    Router.pushRoute('blog', {slug: 'hello-world'})
+    Router.pushRoute("blog", { slug: "hello-world" });
+    // With route name and params and hash
+    Router.pushRoute("blog", { slug: "hello-world" }, { hash: "intro" });
     // With route URL
-    Router.pushRoute('/blog/hello-world')
+    Router.pushRoute("/blog/hello-world");
   }
-  render () {
+  render() {
     return (
       <div>
         <div>{this.props.url.query.slug}</div>
         <button onClick={this.handleClick}>Home</button>
       </div>
-    )
+    );
   }
 }
 ```
