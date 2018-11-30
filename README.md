@@ -13,13 +13,13 @@ Fork of [next-routes](https://github.com/fridays/next-routes/) with anchor suppo
 Install:
 
 ```bash
-npm install next-routes-2 --save
+npm install @socialgouv/next-routes --save
 ```
 
 Create `routes.js` inside your project:
 
 ```javascript
-const routes = require("next-routes");
+const routes = require("@socialgouv/next-routes");
 
 // Name   Page      Pattern
 module.exports = routes() // ----   ----      -----
@@ -183,7 +183,7 @@ It generates the URLs and calls `next/router`
 Optionally you can provide custom `Link` and `Router` objects, for example:
 
 ```javascript
-const routes = module.exports = require('next-routes')({
+const routes = module.exports = require('@socialgouv/next-routes')({
   Link: require('./my/link')
   Router: require('./my/router')
 })
