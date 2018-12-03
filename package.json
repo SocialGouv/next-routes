@@ -1,11 +1,14 @@
 {
   "name": "@socialgouv/next-routes",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Easy to use universal dynamic routes for Next.js",
   "repository": "fridays/next-routes",
   "main": "dist",
   "typings": "typings/next-routes.d.ts",
-  "files": ["dist", "typings"],
+  "files": [
+    "dist",
+    "typings"
+  ],
   "scripts": {
     "lint": "standard 'src/*' 'test/*'",
     "build": "del dist/* && babel src -d dist",
@@ -22,7 +25,10 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "roots": ["test/", "dist/"]
+    "roots": [
+      "test/",
+      "dist/"
+    ]
   },
   "dependencies": {
     "path-to-regexp": "^2.1.0"
