@@ -1,4 +1,10 @@
-# Dynamic Routes for Next.js
+# DEPRECATED
+
+### Use Next.js@9+ routing : https://github.com/zeit/next.js#dynamic-routing
+
+---
+
+## Dynamic Routes for Next.js
 
 Easy to use universal dynamic routes for [Next.js](https://github.com/zeit/next.js)
 
