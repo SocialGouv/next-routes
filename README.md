@@ -1,6 +1,25 @@
-# DEPRECATED
+:skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
 
-### Use Next.js@9+ routing : https://github.com/zeit/next.js#dynamic-routing
+<br>
+<br>
+
+<h3 align=center>DEPRECATED <br> Use Next.js@9+ routing <br> https://github.com/zeit/next.js#dynamic-routing</h3>
+
+<br>
+<br>
+
+:skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull::skull:
+
+<br>
+<br>
+<br>
+<br>
+
+---
+
+<br>
+<br>
+<br>
 
 ---
 
